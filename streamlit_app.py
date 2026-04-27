@@ -24,10 +24,13 @@ except ImportError:
 # 1. IBM WATSON AUTHENTICATION
 # ==========================================
 def load_credentials():
-    if os.path.exists('apikey.json'):
-        with open('apikey.json', 'r') as f:
-            data = json.load(f)
-            return data.get("apikey")
+    # 优先读 Streamlit Secrets（线上 Streamlit Cloud 环境）
+    try:
+        return st.secrets["ibm"]["apikey"]
+    except:
+        if os.path.exists('apikey.json'):
+            with open('apikey.json', 'r') as f:
+                return json.load(f).get("apikey")
     return None
 
 IBM_API_KEY = load_credentials()
