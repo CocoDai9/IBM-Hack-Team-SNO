@@ -28,6 +28,7 @@ def load_credentials():
     try:
         return st.secrets["ibm"]["apikey"]
     except:
+        # 本地开发时读 apikey.json
         if os.path.exists('apikey.json'):
             with open('apikey.json', 'r') as f:
                 return json.load(f).get("apikey")
