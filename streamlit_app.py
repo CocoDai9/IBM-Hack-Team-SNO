@@ -156,7 +156,7 @@ if st.button("🚀 Sync Model to IBM Watson ML"):
             client.set.default_space(SPACE_ID)
 
             # Use software specification: runtime-24.1-py3.11
-            spec_id = client.software_specifications.get_id_by_name("runtime-24.1-py3.11")
+            spec_id = client.software_specifications.get_id_by_name("runtime-25.1-py3.11")
 
             meta_props = {
                 client.repository.ModelMetaNames.NAME: f"US_Open_Model_{algo}",
