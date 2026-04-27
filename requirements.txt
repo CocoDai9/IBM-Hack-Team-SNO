@@ -1,1 +1,2 @@
-streamlit
+pip install streamlit pandas numpy scikit-learn plotly shap optuna ibm-watson-machine-learning
+pip install statsmodels
