@@ -185,8 +185,9 @@ if submitted:
                 "Authorization": f"Bearer {token}",
                 "Content-Type":  "application/json"
             }
-            response   = requests.post(PUBLIC_ENDPOINT, json=payload, headers=headers)
-            result     = response.json()
+            response = requests.post(PUBLIC_ENDPOINT, json=payload, headers=headers)
+            result   = response.json()
+            
             prediction = result['predictions'][0]['values'][0][0]
             st.success(f"Predicted Media Value: **${prediction:.2f}M**")
         except Exception as e:
